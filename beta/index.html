@@ -89,9 +89,8 @@
         fieldset:nth-of-type(2) { border-left: 6px solid var(--pink); }
         fieldset:nth-of-type(3) { border-left: 6px solid var(--amber); }
         legend { float: left; width: 100%; display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
-        legend .n { font-family: var(--font-script); font-size: 2rem; line-height: 1; color: var(--teal); }
-        fieldset:nth-of-type(2) legend .n { color: var(--pink); } fieldset:nth-of-type(3) legend .n { color: var(--amber); }
-        legend h2 { font-size: 1.7rem; }
+        legend h2 { font-size: 1.7rem; color: var(--teal); }
+        fieldset:nth-of-type(2) legend h2 { color: var(--pink); } fieldset:nth-of-type(3) legend h2 { color: var(--amber); }
         .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 
         .field { display: grid; gap: 7px; }
@@ -202,7 +201,7 @@
         <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 
         <fieldset>
-            <legend><span class="n">01</span><h2>Who's at the door</h2></legend>
+            <legend><h2>Who's at the door</h2></legend>
             <div class="row">
                 <label class="field"><span class="lbl">Your name <i>*</i></span>
                     <input type="text" name="name" autocomplete="name" placeholder="First and last" required></label>
@@ -226,7 +225,7 @@
         </fieldset>
 
         <fieldset>
-            <legend><span class="n">02</span><h2>The job you want</h2></legend>
+            <legend><h2>The job you want</h2></legend>
             <label class="field"><span class="lbl">What kind of work? <i>*</i></span>
                 <textarea name="work" placeholder="Job titles or fields. Example: IT help desk, patient access, scheduling, front office." required></textarea></label>
             <div class="row">
@@ -295,7 +294,7 @@
         </fieldset>
 
         <fieldset>
-            <legend><span class="n">03</span><h2>Your resume</h2></legend>
+            <legend><h2>Your resume</h2></legend>
             <div class="drop" id="drop">
                 <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx,.rtf,.txt,.odt,.pages" required aria-label="Upload your resume">
                 <strong>Drop your resume here</strong>
