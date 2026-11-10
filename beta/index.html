@@ -396,9 +396,16 @@ form.addEventListener('submit', async e => {
         const out = await r.json();
         if (!out.ok) throw new Error(out.error || 'Something went wrong.');
         document.getElementById('thanksName').textContent = data.name.split(' ')[0];
+        if (out.waitlist) {
+            const t = document.getElementById('thanks'), first = data.name.split(' ')[0];
+            t.querySelector('h2').innerHTML = "You're on the <em>waitlist.</em>";
+            const ps = t.querySelectorAll('p');
+            ps[0].textContent = 'Got it, ' + first + '. The beta is full right now, so we saved your answers and resume and put you on the waitlist.';
+            ps[1].textContent = "We'll email you as soon as a spot opens.";
+        }
         document.body.classList.add('done');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (window.gtag) gtag('event', 'beta_signup');
+        if (window.gtag) gtag('event', out.waitlist ? 'beta_waitlist' : 'beta_signup');
     } catch (err) {
         fail(err.message && err.message.length < 140 ? err.message : 'Something went wrong sending that. Please try again.');
         go.disabled = false; go.textContent = 'Wave me in';
